@@ -29,7 +29,7 @@ func Build(doc *components.Document) (*fpdf.Fpdf, error) {
     }
 
     // Add first page
-    //doc.pdf.AddPage()
+    doc.Pdf.AddPage()
 
     doc.Pdf.SetFont(doc.Config.Font, "", 12)
 

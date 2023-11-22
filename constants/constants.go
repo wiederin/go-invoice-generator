@@ -1,4 +1,4 @@
-package invoicer
+package constants
 
 const (
     // Invoice define the "invoice" document type

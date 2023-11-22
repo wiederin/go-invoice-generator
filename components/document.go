@@ -1,4 +1,4 @@
-package invoicer
+package components
 
 import (
     "github.com/go-pdf/fpdf"
@@ -6,17 +6,12 @@ import (
 )
 
 type Document struct {
-    pdf *fpdf.Fpdf
-    ac  accounting.Accounting
+    Pdf *fpdf.Fpdf
+    Accounting  accounting.Accounting
 
     Config      *Config        `json:"config,omitempty"`
     Header       *HeaderFooter `json:"header,omitempty"`
     Footer       *HeaderFooter `json:"footer,omitempty"`
-}
-
-// returns the underlying *fpdf.Fpdf used to build document
-func (doc *Document) Pdf() *fpdf.Fpdf {
-    return doc.pdf
 }
 
 // SetUnicodeTranslator to use

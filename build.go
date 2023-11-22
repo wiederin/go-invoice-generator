@@ -2,26 +2,28 @@ package invoicer
 
 import (
     "github.com/go-pdf/fpdf"
+		"github.com/wiederin/go-invoicer/constants"
+		"github.com/wiederin/go-invoicer/components"
 )
 
 // Build pdf document from config
-func (doc *Document) Build() (*fpdf.Fpdf, error) {
+func Build(doc *components.Document) (*fpdf.Fpdf, error) {
     // todo: validate document data
 
     // Build base doc
-    doc.pdf.SetMargins(BaseMargin, BaseMarginTop, BaseMargin)
-    doc.pdf.SetXY(10, 10)
+    doc.Pdf.SetMargins(constants.BaseMargin, constants.BaseMarginTop, constants.BaseMargin)
+    doc.Pdf.SetXY(10, 10)
 
     // todo: add invoice data
 
     if doc.Header != nil {
-        if err := doc.Header.applyHeader(doc); err != nil {
+        if err := doc.Header.ApplyHeader(doc); err != nil {
             return nil, err
         }
     }
 
     if doc.Footer != nil {
-        if err := doc.Footer.applyFooter(doc); err != nil {
+        if err := doc.Footer.ApplyFooter(doc); err != nil {
             return nil, err
         }
     }
@@ -29,8 +31,10 @@ func (doc *Document) Build() (*fpdf.Fpdf, error) {
     // Add first page
     //doc.pdf.AddPage()
 
-    // Load font
-    doc.pdf.SetFont(doc.Config.Font, "", 12)
+    doc.Pdf.SetFont(doc.Config.Font, "", 12)
 
-    return doc.pdf, nil
+		// apend sections
+		doc.Title()
+
+    return doc.Pdf, nil
 }

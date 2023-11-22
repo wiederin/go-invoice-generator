@@ -1,13 +1,16 @@
 package invoicer
 
 import (
+    "github.com/wiederin/go-invoicer/components"
+    "github.com/wiederin/go-invoicer/constants"
+
     "errors"
     "testing"
 )
 
 func TestInitWithInvalidType(t *testing.T) {
-    _, err := Init(&Config{
-        TextTypeInvoice: "INVALID",
+    _, err := Init(&components.Config{
+        TextInvoiceType: "INVALID",
     })
 
     if errors.Is(err, ErrInvalidDocumentType) {
@@ -18,8 +21,8 @@ func TestInitWithInvalidType(t *testing.T) {
 }
 
 func TestInit(t *testing.T) {
-    doc, err := Init(&Config{
-        TextTypeInvoice:   Invoice,
+    doc, err := Init(&components.Config{
+        TextInvoiceType:   constants.Invoice,
         TextRefTitle:      "Invoice No.",
         CurrencyPrecision: 2,
     })
@@ -28,19 +31,19 @@ func TestInit(t *testing.T) {
         t.Fatalf("error generating pdf. got error %v", err)
     }
 
-    doc.SetHeader(&HeaderFooter{
+    doc.SetHeader(&components.HeaderFooter{
         Text:       "<center>Test header content.</center>",
         Pagination: true,
     })
 
 
-    doc.SetFooter(&HeaderFooter{
+    doc.SetFooter(&components.HeaderFooter{
         Text:       "<center>Test footer content</center>",
         Pagination: true,
     })
 
 
-    pdf, err := doc.Build()
+    pdf, err := Build(doc)
     if err != nil {
         t.Errorf(err.Error())
     }

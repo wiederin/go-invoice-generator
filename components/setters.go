@@ -1,4 +1,4 @@
-package invoicer
+package components
 
 func (d *Document) SetHeader(header *HeaderFooter) *Document {
     d.Header = header

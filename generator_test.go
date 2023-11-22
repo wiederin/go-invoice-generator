@@ -33,6 +33,8 @@ func TestInit(t *testing.T) {
         t.Fatalf("error generating pdf. got error %v", err)
     }
 
+    doc.SetVersion("1")
+
     doc.SetHeader(&components.HeaderFooter{
         Text:       "<center>Test header content.</center>",
         Pagination: true,

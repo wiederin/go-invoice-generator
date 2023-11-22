@@ -43,6 +43,8 @@ func Build(doc *components.Document) (*fpdf.Fpdf, error) {
   	} else {
   		doc.Pdf.SetXY(10, companyContactBottom)
   	}
+    
+    doc.AddItems()
 
     return doc.Pdf, nil
 }

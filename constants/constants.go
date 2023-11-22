@@ -30,3 +30,29 @@ var (
 	// LargeTextFontSize define the large font size for text in document
 	LargeTextFontSize float64 = 10
 )
+
+const (
+	// ItemColNameOffset ...
+	ItemColNameOffset float64 = 10
+
+	// ItemColUnitPriceOffset ...
+	ItemColUnitPriceOffset float64 = 80
+
+	// ItemColQuantityOffset ...
+	ItemColQuantityOffset float64 = 103
+
+	// ItemColCommissionOffset ...
+	ItemColCommissionOffset float64 = 125
+
+	// ItemColTotalHTOffset ...
+	ItemColTotalHTOffset float64 = 113
+
+	// ItemColDiscountOffset ...
+	ItemColDiscountOffset float64 = 140
+
+	// ItemColTaxOffset ...
+	ItemColTaxOffset float64 = 157
+
+	// ItemColTotalTTCOffset ...
+	ItemColTotalTTCOffset float64 = 175
+)

@@ -34,6 +34,12 @@ func TestInit(t *testing.T) {
 	})
 
 
+	doc.SetFooter(&HeaderFooter{
+		Text:       "<center>Test footer content</center>",
+		Pagination: true,
+	})
+
+
 	pdf, err := doc.Build()
 	if err != nil {
 		t.Errorf(err.Error())

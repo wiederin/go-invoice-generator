@@ -11,6 +11,7 @@ type Document struct {
 
 	Config      *Config        `json:"config,omitempty"`
 	Header       *HeaderFooter `json:"header,omitempty"`
+	Footer       *HeaderFooter `json:"footer,omitempty"`
 }
 
 // returns the underlying *fpdf.Fpdf used to build document

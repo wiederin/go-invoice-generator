@@ -14,9 +14,15 @@ func (doc *Document) Build() (*fpdf.Fpdf, error) {
 
     // todo: add invoice data
 
-    // add header
 	if doc.Header != nil {
 		if err := doc.Header.applyHeader(doc); err != nil {
+			return nil, err
+		}
+	}
+
+
+	if doc.Footer != nil {
+		if err := doc.Footer.applyFooter(doc); err != nil {
 			return nil, err
 		}
 	}

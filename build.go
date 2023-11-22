@@ -28,13 +28,12 @@ func Build(doc *components.Document) (*fpdf.Fpdf, error) {
         }
     }
 
-    // Add first page
+    // Add first page - required for non header/footer components
     doc.Pdf.AddPage()
 
     doc.Pdf.SetFont(doc.Config.Font, "", 12)
-
-		// apend sections
 		doc.Title()
-
+    doc.Meta()
+    
     return doc.Pdf, nil
 }

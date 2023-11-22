@@ -6,10 +6,17 @@ import (
 )
 
 type Document struct {
-    Pdf *fpdf.Fpdf
-    Accounting  accounting.Accounting
+    // config
+    Accounting   accounting.Accounting
 
-    Config      *Config        `json:"config,omitempty"`
+    // fields
+    Pdf          *fpdf.Fpdf
+	  Date         string        `json:"date,omitempty"`
+    Ref          string        `json:"ref,omitempty" validate:"required,min=1,max=32"`
+	  Version      string        `json:"version,omitempty" validate:"max=32"`
+
+    // components
+    Config       *Config        `json:"config,omitempty"`
     Header       *HeaderFooter `json:"header,omitempty"`
     Footer       *HeaderFooter `json:"footer,omitempty"`
 }

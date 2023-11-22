@@ -21,6 +21,8 @@ type Config struct {
     // text
     TextInvoiceType      string `default:"INVOICE" json:"text_type_invoice,omitempty"`
     TextRefTitle         string `default:"Ref." json:"text_ref_title,omitempty"`
+	  TextDateTitle        string `default:"Date" json:"text_date_title,omitempty"`
+    TextVersionTitle     string `default:"Version" json:"text_version_title,omitempty"`
 
     UnicodeTranslateFunc UnicodeTranslateFunc
 }

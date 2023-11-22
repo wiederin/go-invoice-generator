@@ -34,6 +34,14 @@ func Build(doc *components.Document) (*fpdf.Fpdf, error) {
     doc.Pdf.SetFont(doc.Config.Font, "", 12)
 		doc.Title()
     doc.Meta()
-    
+  	companyContactBottom := doc.Company.AppendCompanyContactToDoc(doc)
+  	customerContactBottom := doc.Customer.AppendCustomerContactToDoc(doc)
+
+    if customerContactBottom > companyContactBottom {
+  		doc.Pdf.SetXY(10, customerContactBottom)
+  	} else {
+  		doc.Pdf.SetXY(10, companyContactBottom)
+  	}
+
     return doc.Pdf, nil
 }

@@ -11,6 +11,7 @@ type Config struct {
 
     // colors
     DarkBgColor   []int `default:"[212,212,212]" json:"dark_bg_color,omitempty"`
+    GreyBgColor   []int `default:"[232,232,232]" json:"grey_bg_color,omitempty"`
 
     // currency
     CurrencySymbol    string `default:"€ " json:"currency_symbol,omitempty"`

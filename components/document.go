@@ -11,14 +11,16 @@ type Document struct {
 
     // fields
     Pdf          *fpdf.Fpdf
-	  Date         string        `json:"date,omitempty"`
+    Date         string        `json:"date,omitempty"`
     Ref          string        `json:"ref,omitempty" validate:"required,min=1,max=32"`
-	  Version      string        `json:"version,omitempty" validate:"max=32"`
+    Version      string        `json:"version,omitempty" validate:"max=32"`
 
     // components
     Config       *Config        `json:"config,omitempty"`
     Header       *HeaderFooter `json:"header,omitempty"`
     Footer       *HeaderFooter `json:"footer,omitempty"`
+    Company      *Contact      `json:"company,omitempty" validate:"required"`
+    Customer     *Contact      `json:"customer,omitempty" validate:"required"`
 }
 
 // SetUnicodeTranslator to use

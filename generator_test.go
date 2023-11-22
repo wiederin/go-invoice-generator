@@ -6,6 +6,7 @@ import (
 
     "errors"
     "testing"
+    "os"
 )
 
 func TestInitWithInvalidType(t *testing.T) {
@@ -26,6 +27,7 @@ func TestInit(t *testing.T) {
         TextRefTitle:      "Invoice No.",
         CurrencyPrecision: 2,
     })
+    logoBytes, _ := os.ReadFile("./example_logo.png")
 
     if err != nil {
         t.Fatalf("error generating pdf. got error %v", err)
@@ -41,6 +43,28 @@ func TestInit(t *testing.T) {
         Text:       "<center>Test footer content</center>",
         Pagination: true,
     })
+
+    doc.SetCompany(&components.Contact{
+        Name: "Test Company",
+        Logo: logoBytes,
+        Address: &components.Address{
+            Address:    "Test Company Address, 12",
+            PostalCode: "90000",
+            City:       "Test City",
+        },
+    })
+
+
+    doc.SetCustomer(&components.Contact{
+        Name: "Test Customer",
+        Address: &components.Address{
+            Address:    "Test Customer Address, 12",
+            PostalCode: "8003",
+            City:       "Test City",
+            Country:    "Test country",
+        },
+    })
+
 
 
     pdf, err := Build(doc)

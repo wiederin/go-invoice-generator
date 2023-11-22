@@ -9,3 +9,13 @@ func (d *Document) SetFooter(footer *HeaderFooter) *Document {
     d.Footer = footer
     return d
 }
+
+func (d *Document) SetCompany(company *Contact) *Document {
+	d.Company = company
+	return d
+}
+
+func (d *Document) SetCustomer(customer *Contact) *Document {
+	d.Customer = customer
+	return d
+}

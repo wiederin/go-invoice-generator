@@ -36,6 +36,7 @@ func Build(doc *components.Document) (*fpdf.Fpdf, error) {
     doc.Meta()
   	companyContactBottom := doc.Company.AppendCompanyContactToDoc(doc)
   	customerContactBottom := doc.Customer.AppendCustomerContactToDoc(doc)
+    doc.AddDescription()
 
     if customerContactBottom > companyContactBottom {
   		doc.Pdf.SetXY(10, customerContactBottom)

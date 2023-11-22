@@ -19,3 +19,8 @@ func (d *Document) SetCustomer(customer *Contact) *Document {
 	d.Customer = customer
 	return d
 }
+
+func (d *Document) SetDescription(desc string) *Document {
+	d.Description = desc
+	return d
+}

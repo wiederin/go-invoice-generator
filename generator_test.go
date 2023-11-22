@@ -65,7 +65,7 @@ func TestInit(t *testing.T) {
         },
     })
 
-
+    doc.SetDescription("Dear Sir or Madam, We hereby invoice you for the following services:")
 
     pdf, err := Build(doc)
     if err != nil {

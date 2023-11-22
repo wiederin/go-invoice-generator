@@ -14,6 +14,7 @@ type Document struct {
     Date         string        `json:"date,omitempty"`
     Ref          string        `json:"ref,omitempty" validate:"required,min=1,max=32"`
     Version      string        `json:"version,omitempty" validate:"max=32"`
+	Description  string        `json:"description,omitempty" validate:"max=1024"`
 
     // components
     Config       *Config        `json:"config,omitempty"`

@@ -1,14 +1,10 @@
 package invoicer
 
 import (
-	"bytes"
-	"fmt"
-	"time"
-
 	"github.com/go-pdf/fpdf"
 )
 
-// Build pdf document from config 
+// Build pdf document from config
 func (doc *Document) Build() (*fpdf.Fpdf, error) {
     // todo: validate document data
 
@@ -17,6 +13,13 @@ func (doc *Document) Build() (*fpdf.Fpdf, error) {
 	doc.pdf.SetXY(10, 10)
 
     // todo: add invoice data
+
+    // add header
+	if doc.Header != nil {
+		if err := doc.Header.applyHeader(doc); err != nil {
+			return nil, err
+		}
+	}
 
 	return doc.pdf, nil
 }

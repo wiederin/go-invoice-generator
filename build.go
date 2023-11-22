@@ -1,7 +1,7 @@
 package invoicer
 
 import (
-	"github.com/go-pdf/fpdf"
+    "github.com/go-pdf/fpdf"
 )
 
 // Build pdf document from config

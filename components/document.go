@@ -24,6 +24,7 @@ type Document struct {
     Customer     *Contact      `json:"customer,omitempty" validate:"required"`
     Items        []*Item       `json:"items,omitempty"`
     DefaultTax   *Tax          `json:"default_tax,omitempty"`
+    Discount     *Discount     `json:"discount,omitempty"`
 }
 
 // SetUnicodeTranslator to use

@@ -27,7 +27,7 @@ func TestInit(t *testing.T) {
         TextRefTitle:      "Invoice No.",
         CurrencyPrecision: 2,
     })
-    logoBytes, _ := os.ReadFile("./example_logo.png")
+    logoBytes, _ := os.ReadFile("./malu_logo.jpeg")
 
     if err != nil {
         t.Fatalf("error generating pdf. got error %v", err)
@@ -68,6 +68,13 @@ func TestInit(t *testing.T) {
     })
 
     doc.SetDescription("Dear Sir or Madam, We hereby invoice you for the following services:")
+
+    doc.AppendItem(&components.Item{
+      Name: "Item 1 - ",
+      Description: "Test Item",
+      UnitCost: "10.0",
+      Commission: "3.00",
+    })
 
     pdf, err := Build(doc)
     if err != nil {

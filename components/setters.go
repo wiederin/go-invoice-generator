@@ -29,3 +29,8 @@ func (d *Document) SetVersion(version string) *Document {
 	d.Version = version
 	return d
 }
+
+func (d *Document) AppendItem(item *Item) *Document {
+	d.Items = append(d.Items, item)
+	return d
+}

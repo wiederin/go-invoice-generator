@@ -8,5 +8,5 @@ require (
 	github.com/go-pdf/fpdf v0.9.0 // indirect
 	github.com/leekchan/accounting v1.0.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
-	github.com/shopspring/decimal v0.0.0-20180709203117-cd690d0c9e24 // indirect
+	github.com/shopspring/decimal v1.3.1 // indirect
 )

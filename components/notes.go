@@ -4,7 +4,7 @@ import (
     "github.com/wiederin/go-invoicer/constants"
 )
 
-func (doc *Document) AppendNotes() {
+func (doc *Document) AddNotes() {
 	if len(doc.Notes) == 0 {
 		return
 	}

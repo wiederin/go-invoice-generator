@@ -55,5 +55,7 @@ func Build(doc *components.Document) (*fpdf.Fpdf, error) {
       doc.Pdf.AddPage()
     }
 
+    doc.AddNotes()
+
     return doc.Pdf, nil
 }

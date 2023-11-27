@@ -16,6 +16,7 @@ type Document struct {
     Version      string        `json:"version,omitempty" validate:"max=32"`
     Description  string        `json:"description,omitempty" validate:"max=1024"`
     Notes        string        `json:"notes,omitempty"`
+    PaymentTerm  string        `json:"payment_term,omitempty"`
 
     // components
     Config       *Config        `json:"config,omitempty"`

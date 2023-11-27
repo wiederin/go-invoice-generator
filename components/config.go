@@ -32,7 +32,7 @@ type Config struct {
     TextTotalWithTax    string `default:"TOTAL WITH TAX" json:"text_total_with_tax,omitempty"`
     TextTotalWithCommission    string `default:"TOTAL" json:"text_total_commission,omitempty"`
     TextFixedTransferFees    string `default:"Fixed Transfer Fees" json:"text_fixed_transfer_fees,omitempty"`
-
+    TextPaymentTermTitle string `default:"Payment term" json:"text_payment_term_title,omitempty"`
     TextItemsNameTitle     string `default:"Name" json:"text_items_name_title,omitempty"`
     TextItemsUnitCostTitle string `default:"Ad Spend" json:"text_items_unit_cost_title,omitempty"`
     TextItemsCommissionTitle string `default:"Commission" json:"text_items_commission_title,omitempty"`

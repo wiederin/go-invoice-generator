@@ -57,6 +57,7 @@ func Build(doc *components.Document) (*fpdf.Fpdf, error) {
 
     doc.AddNotes()
     doc.AddTotal()
+    doc.AddPaymentTerm()
 
     return doc.Pdf, nil
 }
